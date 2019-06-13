@@ -4,6 +4,7 @@
 
 using LightweightIocContainer;
 using LightweightIocContainer.Interfaces;
+using LightweightIocContainer.Interfaces.Installers;
 using LightweightIocContainer.Registrations;
 using LightweightIocContainer_Example.Factories;
 using LightweightIocContainer_Example.Interfaces;
