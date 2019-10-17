@@ -4,7 +4,6 @@
 
 using LightweightIocContainer.Interfaces;
 using LightweightIocContainer.Interfaces.Installers;
-using LightweightIocContainer.Registrations;
 using LightweightIocContainer_Example.Factories;
 using LightweightIocContainer_Example.Interfaces;
 
@@ -14,10 +13,10 @@ namespace LightweightIocContainer_Example.Installers
     {
         public void Install(IIocContainer container)
         {
-            container.Register(RegistrationFactory.Register<IFoo, Foo>());
+            container.Register<IFoo, Foo>();
 
             //factories
-            container.Register(RegistrationFactory.RegisterFactory<IFooFactory>(container));
+            container.RegisterFactory<IFooFactory>();
         }
     }
 }
