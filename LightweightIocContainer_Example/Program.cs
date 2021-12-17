@@ -3,7 +3,7 @@
 // Copyright(c) 2019 SimonG. All Rights Reserved.
 
 using System;
-using LightweightIocContainer.Interfaces;
+using LightweightIocContainer;
 using LightweightIocContainer_Example.Factories;
 using LightweightIocContainer_Example.Interfaces;
 
@@ -13,8 +13,8 @@ namespace LightweightIocContainer_Example
     {
         static void Main(string[] args)
         {
-            Bootstrapper bootstrapper = new Bootstrapper();
-            IIocContainer kernel = bootstrapper.InstantiateContainer();
+            Bootstrapper bootstrapper = new();
+            IocContainer kernel = bootstrapper.InstantiateContainer();
 
             IFooFactory fooFactory = kernel.Resolve<IFooFactory>();
             IFoo foo = fooFactory.Create();

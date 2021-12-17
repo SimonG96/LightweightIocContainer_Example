@@ -3,8 +3,8 @@
 // Copyright(c) 2019 SimonG. All Rights Reserved.
 
 using LightweightIocContainer;
-using LightweightIocContainer.Interfaces;
 using LightweightIocContainer.Interfaces.Installers;
+using LightweightIocContainer.Interfaces.Registrations;
 using LightweightIocContainer_Example.Factories;
 using LightweightIocContainer_Example.Interfaces;
 
@@ -12,13 +12,10 @@ namespace LightweightIocContainer_Example.Installers
 {
     public class Installer : IIocInstaller
     {
-        public void Install(IIocContainer container)
+        public void Install(IRegistrationCollector registration)
         {
-            container.Register<IAsyncClass, AsyncClass>();
-            container.Register<IService, Service>(Lifestyle.Singleton);
-
-            //factories
-            container.RegisterFactory<IAsyncClassFactory>();
+            registration.Add<IAsyncClass, AsyncClass>().WithFactory<IAsyncClassFactory>();
+            registration.Add<IService, Service>(Lifestyle.Singleton);
         }
     }
 }

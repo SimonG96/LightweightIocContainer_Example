@@ -10,13 +10,15 @@ namespace LightweightIocContainer_Example
 {
     public class Bootstrapper
     {
-        public IIocContainer InstantiateContainer()
+        public IocContainer InstantiateContainer()
         {
-            IIocContainer kernel = new IocContainer();
+            IocContainer kernel = new();
 
-            return kernel.Install(new Installer(),
+            kernel.Install(new Installer(),
                 new FooInstaller(),
                 new BarInstaller());
+
+            return kernel;
         }
     }
 }
